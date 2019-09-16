@@ -26,6 +26,24 @@ f = sin(t*15*pi + pi/4);
 
 g = t.*f;
 
+figure(1);
+hold on;
+xlabel('t');
+ylabel('f(t)');
+title('f(t) vs t');
+plot(t, f);
+hold off;
+
+figure(2);
+hold on
+plot(t, f)
+plot(t, g, 'linestyle', ':');
+xlabel('t')
+ylabel('f(t) and g(t)')
+title('f(t) and g(t) vs t')
+legend('f(t)', 'g(t)')
+hold off
+
 //Question 4//
 
 A = [2   sqrt(5)  -1;
@@ -35,15 +53,17 @@ A = [2   sqrt(5)  -1;
  y = [3;
       2;
      -1];
-x = inv(A)*y;
+x = inv(A)*y; // returns x = [0.4268; 0.5105; -1.0049]
 
 C = A;
 
-C(;,2) = y(:);
+C(:,2) = y(:);
 
-x1 = det([y,a(:,2:3)])/det(a);
-x2 = det(c)/det(a);
-x3 = det([y,a(:,1:2)])/det(a);
+x1 = det([y,A(:,2:3)])/det(A); // returns 0.4268
+x2 = det(C)/det(A);            // returns 0.5105
+x3 = det([y,A(:,1:2)])/det(A); // returns -1.0049
+
+//therefore function is valid
 
 //Question 5//
 t = 0:0.01:0.99;
@@ -69,7 +89,7 @@ pik4 = p_imag(:,5);
 
 
 
-figure(1);
+figure(3);
 hold on
 ylim([-1.05 1.05]);
 plot(t, prk0, 'marker', '.');
@@ -84,7 +104,7 @@ xlabel('t');
 ylabel('Phi real');
 hold off
 
-figure(2);
+figure(4);
 hold on
 ylim([-1.05 1.05]);
 plot(t, pik0, 'marker', '.');
@@ -99,7 +119,7 @@ xlabel('t');
 ylabel('Phi imaginary');
 hold off
 
-figure(3)
+figure(5)
 hold on
 plot3(t, prk0, pik0, 'marker', '.');
 plot3(t, prk1, pik1, 'marker', '.', 'linestyle', '--');
