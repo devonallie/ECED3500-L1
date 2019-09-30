@@ -30,13 +30,13 @@
 
     %c) 
 
-        y_q3_i = cos(pi*t +pi/6); 
+        y = cos(pi*t +pi/6); 
         y_anon =@(t) cos(pi*t +pi/6);
         y_anon_squaredbytwo =@(t) (y_anon(t).^2)/2;
 
         figure(2);
         hold on; 
-        plot(t,y_q3_i);
+        plot(t,y);
         hold off;
         
 
